@@ -8,14 +8,14 @@
   <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: blob:; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; font-src 'self' data:; media-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'">
   <title>生明月 · 公测版</title><meta name="robots" content="noindex,nofollow">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23091923'/%3E%3Ccircle cx='32' cy='29' r='16' fill='%23deddd0'/%3E%3Ccircle cx='39' cy='24' r='16' fill='%23091923'/%3E%3Cpath d='M12 49H52' stroke='%239bb8c3'/%3E%3C/svg%3E">
-  <link rel="stylesheet" href="assets/font.css?v=20261105-3">
+  <link rel="stylesheet" href="assets/font.css?v=pages-2">
   <link rel="stylesheet" href="style.css?v=20261111-2">
   <script src="vendor/astronomy.browser.min.js?v=20261105-3" defer></script>
-  <script src="assets/moon-texture.js?v=20261105-3" defer></script>
+  <script src="assets/moon-texture.js?v=pages-2" defer></script>
   <script src="lunar.js?v=20261105-3" defer></script>
-  <script src="art.js?v=20261105-3" defer></script>
+  <script src="art.js?v=pages-2" defer></script>
   <script src="app.js?v=20261111-2" defer></script>
-<link rel="icon" href="./favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="./beta.css?v=20261105-3"><link rel="stylesheet" href="./static-flow.css?v=20261105-3"><script defer src="./date-fields.js?v=20261111-1"></script><script defer src="./open-flow.js?v=20261111-1"></script>
+<link rel="icon" href="./favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="./beta.css?v=20261105-3"><script src="./music.js?v=20261105-3" defer></script><link rel="stylesheet" href="./static-flow.css?v=20261105-3"><script defer src="./date-fields.js?v=20261111-1"></script><script defer src="./open-flow.js?v=20261111-1"></script>
 <script defer src="../review-data.js"></script><script defer src="./review-product.js"></script></head>
 <body>
   <a class="skip-link" href="#main">跳到内容</a>
@@ -96,5 +96,5 @@
     <details><summary>计算、字体与月面来源</summary><p>Astronomy Engine © Don Cross，MIT 许可；Noto Serif SC，SIL Open Font License。月面纹理：NASA's Scientific Visualization Studio / LROC，固定纹理仅用于可视化。<a href="credits.html">查看来源与许可</a>。</p><p><a href="https://github.com/cosinekitty/astronomy" target="_blank" rel="noopener noreferrer">Astronomy Engine ↗</a><br><a href="https://svs.gsfc.nasa.gov/4720/" target="_blank" rel="noopener noreferrer">NASA CGI Moon Kit ↗</a><br><a href="https://aa.usno.navy.mil/data/MoonPhases" target="_blank" rel="noopener noreferrer">USNO 月相参考 ↗</a></p><p>以上链接仅在你主动打开时访问外部网站，不携带输入内容。</p></details>
   </div><button type="button" class="secondary-button close-about">继续看月亮</button></dialog>
   <noscript><p class="noscript">生明月需要启用 JavaScript 才能在本机计算月相与生成图片。</p></noscript>
-</body>
+<aside class="music-bar" aria-label="背景音乐"><button type="button" id="music-toggle" aria-pressed="false"><span aria-hidden="true">♫</span> <span id="music-label">开启音乐</span></button><label class="music-volume">音量<input id="music-volume" type="range" min="0" max="100" value="25" aria-label="音乐音量"></label><span id="music-feedback" role="status" class="music-feedback"></span><audio id="moon-music" loop preload="none" src="./assets/event-horizon-haze.m4a"></audio></aside></body>
 </html>

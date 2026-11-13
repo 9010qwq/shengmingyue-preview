@@ -16,7 +16,14 @@
     img.src=source;
   });}
   const ready=loadTexture(root.MOON_TEXTURE,'standard');
-  function highReady(){if(!root.MOON_TEXTURE_HIGH)return Promise.reject(new Error('请保留完整礼物包素材。'));if(!highPromise)highPromise=ready.then(()=>loadTexture(root.MOON_TEXTURE_HIGH,'high'));return highPromise;}
+  const highUrl = new URL('./assets/moon-texture-high.webp', document.currentScript.src).href;
+  function highReady() {
+    if (!highPromise) highPromise = ready.then(() => loadTexture(highUrl, 'high')).catch(error => {
+      highPromise = null;
+      throw error;
+    });
+    return highPromise;
+  }
   function scaleOf(ctx){const t=ctx.getTransform();return Math.max(Math.hypot(t.a,t.b),Math.hypot(t.c,t.d));}
   function sphere(size){
     if(sphereCache.has(size))return sphereCache.get(size);

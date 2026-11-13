@@ -1,6 +1,6 @@
 @font-face {
   font-family: "Moon Serif";
-  src: url("./assets/moon-serif.woff2") format("woff2");
+  src: url("../product/assets/moon-serif-preview.woff2") format("woff2");
   font-weight: 400;
   font-display: swap;
 }
