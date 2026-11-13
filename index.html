@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta http-equiv="Content-Security-Policy" content="form-action 'none'">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#091923">
+  <meta name="robots" content="noindex,nofollow">
+  <title>生明月 · 线上试玩</title>
+  <link rel="icon" href="./product/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="./product/assets/font.css">
+  <link rel="stylesheet" href="./review.css">
+  <script src="./review-data.js" defer></script>
+  <script src="./review-hub.js" defer></script>
+</head>
+<body>
+  <header class="page-header">
+    <div class="brand"><span class="brand-moon" aria-hidden="true"></span>生明月</div>
+    <span class="review-tag">线上试玩</span>
+  </header>
+  <main>
+    <section class="intro" aria-labelledby="review-title">
+      <h1 id="review-title">用同一组生日，<br>对照不同的月色</h1>
+      <p>选一组示例或填写你们的生日，再用同一组日期看报告和动效。报告和体验页也会沿用昵称。</p>
+    </section>
+
+    <section class="review-inputs" aria-labelledby="birthdays-title">
+      <h2 id="birthdays-title">选择生日</h2>
+      <div class="presets" role="group" aria-label="生日示例">
+        <button type="button" data-preset="default" aria-pressed="true">
+          <span>常规合月</span><small>合月亮面约 62%</small>
+        </button>
+        <button type="button" data-preset="thin" aria-pressed="false">
+          <span>纤细月牙</span><small>合月亮面约 2%</small>
+        </button>
+        <button type="button" data-preset="full" aria-pressed="false">
+          <span>满圆合月</span><small>合月亮面 100%</small>
+        </button>
+      </div>
+      <form id="review-form" autocomplete="off">
+        <fieldset>
+          <legend>你的月亮</legend>
+          <label for="review-date-a">公历生日</label>
+          <input id="review-date-a" name="dateA" type="date" min="1900-01-01" max="2100-12-31" required>
+          <label for="review-name-a">昵称 <small>选填</small></label>
+          <input id="review-name-a" name="nameA" type="text" maxlength="16" placeholder="你">
+        </fieldset>
+        <fieldset>
+          <legend>对方的月亮</legend>
+          <label for="review-date-b">公历生日</label>
+          <input id="review-date-b" name="dateB" type="date" min="1900-01-01" max="2100-12-31" required>
+          <label for="review-name-b">昵称 <small>选填</small></label>
+          <input id="review-name-b" name="nameB" type="text" maxlength="16" placeholder="对方">
+        </fieldset>
+      </form>
+      <p id="review-note" class="review-note" role="status">打开下方任一版本，即可用这组生日和昵称对照。</p>
+    </section>
+
+    <section class="review-versions" aria-labelledby="versions-title">
+      <h2 id="versions-title">用这组生日打开</h2>
+      <div class="destinations">
+        <article class="destination destination-product">
+          <a class="destination-main" data-review-page="report" href="./product/report.html">
+            <span class="destination-name">完整报告</span>
+            <span class="destination-text">看双人合月结果和月亮档案，试存海报与锁屏。</span>
+            <span class="destination-arrow" aria-hidden="true">↗</span>
+          </a>
+          <a class="experience-link" data-review-page="experience" href="./product/index.html">打开体验页 <span aria-hidden="true">→</span></a>
+        </article>
+        <article class="destination">
+          <a class="destination-main" data-review-page="two" href="./art/index.html#two">
+            <span class="destination-name">两轮月色</span>
+            <span class="destination-text">看两轮生日月亮从分开到相遇。</span>
+            <span class="destination-arrow" aria-hidden="true">↗</span>
+          </a>
+        </article>
+        <article class="destination">
+          <a class="destination-main" data-review-page="sea" href="./art/index.html#sea">
+            <span class="destination-name">星海合月</span>
+            <span class="destination-text">看星海背景里的合月动效。</span>
+            <span class="destination-arrow" aria-hidden="true">↗</span>
+          </a>
+        </article>
+      </div>
+    </section>
+
+    <section class="experiment" aria-labelledby="experiment-title">
+      <div>
+        <h2 id="experiment-title">3D 月面漫游</h2>
+        <p>拖动月球看月面，点一下拨开星光。</p>
+      </div>
+      <a href="./experiments/index.html">打开独立实验 <span aria-hidden="true">↗</span></a>
+    </section>
+    <noscript><p class="review-note">请启用 JavaScript，让各版本沿用这组生日和昵称。</p></noscript>
+  </main>
+</body>
+</html>

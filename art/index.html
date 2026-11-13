@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta http-equiv="Content-Security-Policy" content="form-action 'none'">
+  <meta name="robots" content="noindex,nofollow">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="color-scheme" content="dark">
+  <title>生明月 · 美术内测</title>
+  <link rel="stylesheet" href="./scene.css">
+  <script defer src="./assets/astronomy.browser.min.js"></script>
+  <script defer src="./assets/moon-texture.js"></script>
+  <script defer src="./assets/lunar.js"></script>
+  <script defer src="./assets/art.js"></script>
+  <script defer src="../review-data.js"></script>
+  <script defer src="./scene.js"></script>
+</head>
+<body>
+  <main class="scene" id="scene">
+    <canvas id="sea" aria-hidden="true"></canvas>
+    <header class="masthead">
+      <span class="brand"><span class="moon-mark" aria-hidden="true"></span>生明月</span>
+      <nav class="versions" aria-label="切换美术版本">
+        <button type="button" data-art="sea" aria-pressed="false">两轮月色</button>
+        <button type="button" data-art="stars" aria-pressed="true">星海合月</button>
+      </nav>
+      <nav class="samples" aria-label="切换示例月相">
+        <button type="button" data-sample="partial" aria-pressed="true">两弯留白</button>
+        <button type="button" data-sample="thin" aria-pressed="false">微光</button>
+        <button type="button" data-sample="full" aria-pressed="false">合成满圆</button>
+      </nav>
+    </header>
+    <section class="intro" aria-labelledby="title">
+      <h1 id="title">星海合月</h1>
+      <p id="subtitle">让两轮月亮在星光里相遇。</p>
+    </section>
+    <section class="control" aria-label="双月叠合">
+      <div class="phases">
+        <p><span class="legend warm" aria-hidden="true"></span><time id="date-a"></time><span id="phase-a"></span></p>
+        <p><span class="legend cool" aria-hidden="true"></span><time id="date-b"></time><span id="phase-b"></span></p>
+      </div>
+      <div class="slider">
+        <label for="merge">让月亮靠近</label>
+        <input id="merge" type="range" min="0" max="100" value="0" aria-valuetext="各自的月色" disabled>
+        <output id="view" for="merge">各自的月色</output>
+      </div>
+      <button id="meet" type="button" disabled>让月色相遇 <span aria-hidden="true">→</span></button>
+    </section>
+    <details class="custom">
+      <summary>自填生日</summary>
+      <form id="birthday-form">
+        <label>第一个生日 <input id="birthday-a" type="date" min="1900-01-01" max="2100-12-31" required></label>
+        <label>第二个生日 <input id="birthday-b" type="date" min="1900-01-01" max="2100-12-31" required></label>
+        <button type="submit">查看月色</button>
+        <p id="date-error" role="alert"></p>
+      </form>
+    </details>
+    <footer><a class="review-return" href="../">返回试玩入口</a><span>月相按北京时间当日中午估算 · 月面 <a href="https://svs.gsfc.nasa.gov/4720/" target="_blank" rel="noopener">NASA SVS</a></span></footer>
+    <p id="announcement" class="sr-only" role="status"></p>
+  </main>
+</body>
+</html>
+
+

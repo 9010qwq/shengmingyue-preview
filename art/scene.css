@@ -1,0 +1,186 @@
+@font-face {
+  font-family: "Moon Serif";
+  src: url("./assets/moon-serif.woff2") format("woff2");
+  font-weight: 400;
+  font-display: swap;
+}
+:root {
+  color-scheme: dark;
+  color: #f4ebe0;
+  background: #080e1b;
+  font-family: "Microsoft YaHei", "PingFang SC", sans-serif;
+}
+* { box-sizing: border-box; }
+body { margin: 0; }
+.scene {
+  --inset: clamp(28px, 6.4vw, 108px);
+  position: relative;
+  isolation: isolate;
+  min-height: max(640px, 100svh);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: clamp(25px, 4.8vh, 50px) var(--inset) 24px;
+  overflow: hidden;
+}
+canvas { position: absolute; inset: 0; width: 100%; height: 100%; z-index: -1; }
+.masthead { display: flex; align-items: center; justify-content: space-between; }
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  font: 17px/1.2 "Moon Serif", serif;
+  letter-spacing: .24em;
+}
+.moon-mark { width: 17px; height: 17px; border: 1px solid #e8c9a9; box-shadow: inset 5px 0 #e8c9a9; border-radius: 50%; }
+.sample { color: #b8bfcc; font-size: 12px; letter-spacing: .18em; }
+.intro { text-align: center; margin-top: clamp(29px, 5vh, 52px); }
+h1 { margin: 0; font: 400 clamp(42px, 5.2vw, 74px)/1.16 "Moon Serif", SimSun, serif; letter-spacing: .12em; text-indent: .12em; }
+.intro p { margin: 14px 0 0; color: #c2c6d3; font-size: 13px; letter-spacing: .13em; }
+.control {
+  width: min(440px, 100%);
+  margin: 0 auto;
+  margin-top: max(315px, calc(100svh - 482px));
+  text-align: center;
+}
+.phases { display: flex; justify-content: space-between; gap: 8px; margin-bottom: 14px; }
+.phases p { display: flex; gap: 7px; align-items: center; margin: 0; font-size: 12px; white-space: nowrap; color: #cad3e3; }
+.phases time { font-variant-numeric: tabular-nums; letter-spacing: .06em; color: #f0e1cf; }
+.phases p:last-child time { color: #c4def4; }
+.legend { display: inline-block; width: 6px; height: 6px; border-radius: 50%; }
+.warm { background: #f3c297; box-shadow: 0 0 10px #edc09d80; }
+.cool { background: #a1caf0; box-shadow: 0 0 10px #96c2ff80; }
+.slider {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  text-align: left;
+  align-items: center;
+  gap: 2px 12px;
+  color: #c2ccdc;
+  font-size: 11px;
+}
+#merge { grid-row: 2; grid-column: 1 / -1; width: 100%; height: 32px; margin: 0; accent-color: #e8c9a9; cursor: pointer; }
+#view { grid-column: 2; grid-row: 1; }
+button {
+  margin-top: 12px;
+  padding: 0 20px;
+  min-height: 46px;
+  font-size: 13px;
+  font-family: inherit;
+  letter-spacing: .08em;
+  color: #faeedf;
+  border: 1px solid #d6bda675;
+  border-radius: 99px;
+  background: #181b2bdc;
+  cursor: pointer;
+}
+button span { margin-left: 9px; }
+button:disabled { opacity: .5; cursor: default; }
+button:not(:disabled):hover { background: #e8cdb0; color: #101425; }
+button:focus-visible, input:focus-visible, a:focus-visible { outline: 2px solid #ebcba8; outline-offset: 4px; }
+footer { margin-top: 24px; text-align: center; color: #a0aebf; font-size: 10px; letter-spacing: .1em; }
+a { color: inherit; text-underline-offset: 3px; }
+.sr-only { position: absolute; width: 1px; height: 1px; margin: -1px; overflow: hidden; clip-path: inset(50%); }
+@media (max-width: 600px) {
+  .scene { --inset: max(23px, env(safe-area-inset-left)); min-height: max(590px,100svh); padding-bottom: 20px; }
+  .intro { margin-top: 32px; }
+  h1 { font-size: clamp(38px, 10.5vw, 55px); }
+  .intro p { margin-top: 10px; font-size: 12px; }
+  .control { margin-top: max(237px,calc(100svh - 386px)); }
+  .phases p { gap: 5px; font-size: 11px; }
+  footer { margin-top: 18px; letter-spacing: .04em; }
+}
+
+.samples { display: flex; gap: 7px; align-items: center; }
+.samples button {
+  margin: 0;
+  min-height: 36px;
+  padding: 0 12px;
+  border: 1px solid transparent;
+  color: #bfc9dc;
+  background: #0b112187;
+  font-size: 11px;
+  letter-spacing: .03em;
+  white-space: nowrap;
+}
+.samples button[aria-pressed=true] { border-color: #e1c1a68b; background: #332c39; color: #ffead7; }
+.samples button:hover:not(:disabled) { background: #e8cdb0; color: #101425; }
+@media (max-width: 600px) {
+  .samples { gap: 3px; }
+  .samples button { padding: 0 6px; }
+}
+.versions, .samples {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+}
+.versions button, .samples button {
+  margin: 0;
+  min-height: 38px;
+  padding: 0 10px;
+  font-size: 11px;
+  white-space: nowrap;
+  letter-spacing: .03em;
+  color: #bac8d9;
+  border-color: transparent;
+  background: #0a111b61;
+}
+.versions button[aria-pressed=true], .samples button[aria-pressed=true] {
+  border-color: #d4b7967b;
+  background: #332d38;
+  color: #ffe7d0;
+}
+.custom {
+  width: min(440px,100%);
+  margin: 13px auto 0;
+  text-align: center;
+  color: #c7d1e0;
+}
+.custom summary {
+  display: inline-flex;
+  align-items: center;
+  min-height: 36px;
+  padding: 0 9px;
+  font-size: 12px;
+  cursor: pointer;
+}
+.custom summary::after { content: "＋"; margin-left: 7px; color: #d7b690; }
+.custom[open] summary::after { content: "−"; }
+.custom summary:focus-visible { outline: 2px solid #e7c5a4; outline-offset: 3px; }
+.custom form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  align-items: end;
+  margin: 5px 0 0;
+}
+.custom label { font-size: 11px; text-align: left; }
+.custom input {
+  display: block;
+  margin-top: 5px;
+  min-height: 40px;
+  max-width: 142px;
+  border-radius: 6px;
+  border: 1px solid #666d7e;
+  background: #151f30;
+  color: #f3e9dd;
+  padding: 4px 6px;
+  font: inherit;
+  font-size: 13px;
+}
+.custom button { min-height: 40px; margin: 0; padding: 0 13px; white-space: nowrap; }
+#date-error { flex: 0 0 100%; margin: 0; font-size: 12px; color: #ffc9b1; }
+#date-error:empty { display: none; }
+.control { margin-top: max(255px,calc(100svh - 555px)); }
+footer { margin-top: 11px; }
+@media (max-width: 780px) {
+  .masthead { flex-wrap: wrap; row-gap: 5px; }
+  .masthead .samples { flex: 0 0 100%; justify-content: center; }
+  .intro { margin-top: 20px; }
+}
+@media (max-width: 600px) {
+  .control { margin-top: max(235px,calc(100svh - 474px)); }
+  .versions button, .samples button { min-height: 42px; }
+}

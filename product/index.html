@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#091923">
+  <meta name="description" content="为两个人留一张月色合照。生日在本机计算，免费保存月相纪念图。">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: blob:; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; font-src 'self' data:; media-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'">
+  <title>生明月 · 公测版</title><meta name="robots" content="noindex,nofollow">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23091923'/%3E%3Ccircle cx='32' cy='29' r='16' fill='%23deddd0'/%3E%3Ccircle cx='39' cy='24' r='16' fill='%23091923'/%3E%3Cpath d='M12 49H52' stroke='%239bb8c3'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="assets/font.css?v=20261105-3">
+  <link rel="stylesheet" href="style.css?v=20261111-2">
+  <script src="vendor/astronomy.browser.min.js?v=20261105-3" defer></script>
+  <script src="assets/moon-texture.js?v=20261105-3" defer></script>
+  <script src="lunar.js?v=20261105-3" defer></script>
+  <script src="art.js?v=20261105-3" defer></script>
+  <script src="app.js?v=20261111-2" defer></script>
+<link rel="icon" href="./favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="./beta.css?v=20261105-3"><link rel="stylesheet" href="./static-flow.css?v=20261105-3"><script defer src="./date-fields.js?v=20261111-1"></script><script defer src="./open-flow.js?v=20261111-1"></script>
+<script defer src="../review-data.js"></script><script defer src="./review-product.js"></script></head>
+<body>
+  <a class="skip-link" href="#main">跳到内容</a>
+  <header class="site-header">
+    <a class="brand" href="index.html" aria-label="生明月首页"><span class="brand-mark" aria-hidden="true"></span><span>生明月</span></a>
+    <span class="header-poem">海上生明月 · 天涯共此时</span>
+  </header>
+  <main id="main"><div class="beta-notice"><span>试玩 · 双人月色</span><a href="../" data-review-return>返回试玩入口</a></div>
+    <section id="entry" class="entry-view">
+      <div class="invitation">
+        <p class="eyebrow">A LITTLE MOON, A LITTLE US</p>
+        <h1>天涯两端<br>月色相逢</h1>
+        <p class="intro">找回两个人来到世界那天的月亮，<br>留一张只属于你们的月色合照。</p>
+        <div class="entry-art"><canvas id="welcome-art" width="1000" height="610" role="img" aria-label="虚构生日示例：两轮真实计算的月亮，在深蓝海面上相伴"></canvas><span class="art-caption">两枚月色 · 一场邂逅</span></div>
+        <p class="entry-foot">无需账号 <span>·</span> 免费留存 <span>·</span> 生日只在本机计算</p>
+      </div>
+      <div class="form-panel">
+        <div class="section-head"><span class="chapter-number">01</span><div><p class="eyebrow">BEGIN WITH TWO DAYS</p><h2>从两个日子开始</h2></div></div>
+        <form id="birthday-form" novalidate autocomplete="off">
+          <fieldset class="person-field"><legend><span class="person-dot a"></span> 你的月亮</legend>
+            <label for="date-a">公历生日 <span class="required-note">必填</span></label>
+            <input id="date-a" name="date-a" type="date" min="1900-01-01" max="2100-12-31" required aria-describedby="date-note error-a">
+            <p id="error-a" class="field-error" role="alert"></p>
+            <label class="nickname-label" for="name-a">怎么称呼你 <span>选填</span></label><input id="name-a" name="name-a" type="text" maxlength="16" placeholder="你想留在图上的名字" aria-describedby="name-note">
+          </fieldset>
+          <fieldset class="person-field"><legend><span class="person-dot b"></span> 对方的月亮</legend>
+            <label for="date-b">公历生日 <span class="required-note">必填</span></label>
+            <input id="date-b" name="date-b" type="date" min="1900-01-01" max="2100-12-31" required aria-describedby="date-note error-b">
+            <p id="error-b" class="field-error" role="alert"></p>
+            <label class="nickname-label" for="name-b">怎么称呼对方 <span>选填</span></label><input id="name-b" name="name-b" type="text" maxlength="16" placeholder="一个昵称就很好" aria-describedby="name-note">
+          </fieldset>
+          <p id="name-note" class="sr-only">昵称最多 16 个字符，不需要真实姓名。</p>
+          <p id="date-note" class="form-note">直接填写出生年、月、日，无需翻日历。请用公历生日。按当天中午估算<br><span>统一参考 UTC+08:00 12:00</span></p>
+          <button class="primary-button" id="generate" type="submit">让月色相遇 <span aria-hidden="true">→</span></button>
+          <p class="privacy-small">不上传生日，不存入网址。输入只在本机处理；切换完整版时接续。</p>
+        </form>
+      </div>
+    </section>
+    <section id="result" class="result-view" hidden tabindex="-1" aria-labelledby="result-heading">
+      <div class="result-top"><button type="button" class="text-button" id="edit-dates">← 修改生日或昵称</button><span class="eyebrow">你们的月色</span></div>
+      <div class="result-grid">
+        <div class="moon-column">
+          <div class="stage-wrap" id="stage-wrap"><canvas id="moon-stage" width="1000" height="820" role="img" aria-label="双月合映"></canvas><span class="stage-label" id="stage-label">两轮月亮，正在靠近</span></div>
+          <div class="merge-controls">
+            <div class="merge-top"><span>让月亮慢慢靠近</span><output id="merge-description" for="merge-range">各自的月色</output></div>
+            <label class="sr-only" for="merge-range">双月靠近程度</label><input type="range" id="merge-range" min="0" max="100" value="0" step="1" aria-valuetext="各自的月色" aria-describedby="merge-note">
+            <p class="model-note" id="merge-note"><span>* 按当天中午估算 · 统一北向朝上</span><span>* 合月保留各自明暗，暗部轮廓仅作辨识示意。</span></p>
+          </div>
+          <div class="moon-facts" aria-label="各自的月相"><article><span class="person-dot a"></span><h3 id="fact-name-a"></h3><p id="fact-date-a"></p><p class="phase-fact" id="fact-phase-a"></p><p class="light-fact" id="fact-light-a"></p></article><article><span class="person-dot b"></span><h3 id="fact-name-b"></h3><p id="fact-date-b"></p><p class="phase-fact" id="fact-phase-b"></p><p class="light-fact" id="fact-light-b"></p></article></div>
+        </div>
+        <div class="story-column">
+          <section class="poster-keeper" aria-labelledby="poster-heading">
+            <h2 id="poster-heading">你们的纪念海报</h2>
+            <img class="poster-image" id="export-image" alt="你们的月色纪念海报" width="1080" height="1440">
+            <label class="message-label" for="message">在海报上留一句话 <span>选填</span></label><textarea id="message" rows="2" maxlength="60" placeholder="隔着山海，也想与你共此时。"></textarea>
+            <label class="checkbox-label"><input id="hide-year" type="checkbox" checked><span>海报上隐藏出生年份</span></label>
+            <a id="download" class="primary-button" download="生明月-纪念海报.png">保存海报 <span aria-hidden="true">↓</span></a>
+            <p class="export-note">手机也可以长按海报保存。</p>
+          </section>
+          <div class="story-heading"><span id="meeting-label" class="seal"></span><h2 id="result-heading"></h2></div>
+          <div class="reading"><div><h3>你们的月色</h3><p id="moon-reading"></p></div><div><h3>你们的相遇</h3><p id="meeting-reading"></p></div><div class="small-thing"><h3>一起做件小事</h3><p id="action-reading"></p></div><p class="entertainment">月色意象 · 仅供娱乐</p></div>
+          <section class="full-report-offer" aria-labelledby="full-report-title">
+            <h3 id="full-report-title">你们的完整月色报告</h3>
+            <p>看出生那天的月亮档案与双人月色解读，把合在一起的月亮做成锁屏。</p>
+            <a class="primary-button" data-open-full href="./report.html">打开完整版 →</a>
+          </section>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer class="site-footer"><span>生明月 <span class="footer-dot">·</span> 为相逢留一束光</span><button type="button" class="text-button about-button">月相与隐私说明</button></footer>
+  <div id="status-message" class="toast" role="status" aria-live="polite"></div>
+  <dialog id="about-dialog" aria-labelledby="about-title"><div class="dialog-heading"><h2 id="about-title">关于这片月色</h2><button type="button" class="icon-button close-about" aria-label="关闭说明">×</button></div><div class="about-content">
+    <h3>一个日子的月亮</h3><p>输入公历日期，以当天 UTC+08:00 中午 12:00（04:00 UTC）计算月相，页面与图片都标注“按当天中午估算”。不将农历日期当作公历；首版支持 1900—2100 年。</p>
+    <h3>我们怎样合月</h3><p>使用 Astronomy Engine 2.1.19 计算受光比例与盈亏。两轮月亮统一采用北向朝上、盈月右亮、亏月左亮的标准示意视向，月面纹理固定，不模拟出生地点、天空倾角或天平动。它不是出生瞬间的天空照片。</p><p>靠近时取两片照亮区域的并集，重叠区域不重复增亮，不翻转、旋转月亮或补齐暗面。两轮满月是“同辉”。海面倒影为艺术装饰；月相本身由计算结果连续绘制。</p>
+    <h3>把日期留在这里</h3><p>生日、昵称与留言在浏览器中计算，不写入网址、不发送给网站后台。切换到完整版时，当前标签页暂存输入，读取后立即清除，超过 5 分钟不再接续。你主动保存的图片会包含所选昵称、留言与日期，可隐藏出生年份。</p>
+    <h3>关于这份月色解读</h3><p>月相图来自天文计算；人格与配对内容是占星文化启发的娱乐创作。体验页和完整版均可直接打开。本轮以天文档案、潮汐科普和图片体验为主，当前不收款。</p>
+    <details><summary>计算、字体与月面来源</summary><p>Astronomy Engine © Don Cross，MIT 许可；Noto Serif SC，SIL Open Font License。月面纹理：NASA's Scientific Visualization Studio / LROC，固定纹理仅用于可视化。<a href="credits.html">查看来源与许可</a>。</p><p><a href="https://github.com/cosinekitty/astronomy" target="_blank" rel="noopener noreferrer">Astronomy Engine ↗</a><br><a href="https://svs.gsfc.nasa.gov/4720/" target="_blank" rel="noopener noreferrer">NASA CGI Moon Kit ↗</a><br><a href="https://aa.usno.navy.mil/data/MoonPhases" target="_blank" rel="noopener noreferrer">USNO 月相参考 ↗</a></p><p>以上链接仅在你主动打开时访问外部网站，不携带输入内容。</p></details>
+  </div><button type="button" class="secondary-button close-about">继续看月亮</button></dialog>
+  <noscript><p class="noscript">生明月需要启用 JavaScript 才能在本机计算月相与生成图片。</p></noscript>
+</body>
+</html>

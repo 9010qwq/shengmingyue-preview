@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta name="robots" content="noindex,nofollow">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="color-scheme" content="dark">
+  <title>月面漫游 · 生明月</title>
+  <link rel="stylesheet" href="./scene.css">
+  <script defer src="./assets/moon-texture.js"></script>
+  <script defer src="./shaders.js"></script>
+  <script defer src="./scene.js"></script>
+</head>
+<body>
+  <main class="observatory" id="observatory">
+    <div class="stage" id="stage" tabindex="0" role="group" aria-label="可旋转的月球" aria-describedby="gesture">
+      <canvas id="sky" aria-hidden="true"></canvas>
+    </div>
+    <header class="brand"><span class="phase-mark" aria-hidden="true"></span>生明月</header>
+    <section class="intro" aria-labelledby="title">
+      <h1 id="title">月面漫游</h1>
+      <p id="gesture">拖动看月面，点一下拨开星光。</p>
+    </section>
+    <div class="controls">
+      <button id="burst" class="primary" type="button" disabled><span aria-hidden="true">✦</span> 拨开星光</button>
+      <button id="reset" class="secondary" type="button" disabled>回到初始视角</button>
+    </div>
+    <footer><a href="../">返回试玩入口</a> · 月面影像 <a href="https://svs.gsfc.nasa.gov/4720/" target="_blank" rel="noopener">NASA SVS / LROC</a></footer>
+    <p id="status" class="sr-only" role="status"></p>
+    <p id="fallback" class="fallback" hidden>这个浏览器未能启动 3D 月面。可以用支持 WebGL 2 的 Edge 或 Chrome 打开这个页面。</p>
+  </main>
+</body>
+</html>

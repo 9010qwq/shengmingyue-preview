@@ -1,0 +1,277 @@
+:root {
+  color-scheme: dark;
+  --night: #091923;
+  --panel: #10232e;
+  --text: #edece3;
+  --muted: #a6bcc5;
+  --line: #b9d1d32d;
+  --accent: #d3e4de;
+  --gold: #cbbb9f;
+  --serif: 'Moon Serif', 'Songti SC', 'STSong', 'SimSun', serif;
+  --sans: 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', system-ui, sans-serif;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+body {
+  min-width: 280px;
+  min-height: 100vh;
+  margin: 0;
+  background: radial-gradient(ellipse at 75% 0, #1c3c42 0, transparent 520px), var(--night);
+  color: var(--text);
+  font: 15px/1.6 var(--sans);
+}
+
+button, input { font: inherit; }
+a { color: inherit; }
+button, a, input { -webkit-tap-highlight-color: transparent; }
+:focus-visible { outline: 2px solid #c2e5da; outline-offset: 3px; }
+h1, h2, p { margin: 0; }
+h1, h2 { font-family: var(--serif); font-weight: 400; }
+
+.page-header,
+main {
+  width: min(100% - 48px, 920px);
+  margin-inline: auto;
+}
+
+.page-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 70px;
+  border-bottom: 1px solid var(--line);
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font: 23px/1.4 var(--serif);
+  letter-spacing: .08em;
+}
+
+.brand-moon {
+  width: 21px;
+  height: 21px;
+  border: 1px solid #c8dad7;
+  border-radius: 50%;
+  background: linear-gradient(90deg, transparent 50%, #c8dad7 50%);
+}
+
+.review-tag {
+  color: var(--gold);
+  font-size: 12px;
+  letter-spacing: .11em;
+}
+
+main { padding: 43px 0 48px; }
+
+.intro {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+  align-items: end;
+  gap: 26px;
+  margin-bottom: 27px;
+}
+
+.intro h1 {
+  font-size: clamp(34px, 5.6vw, 49px);
+  line-height: 1.33;
+  letter-spacing: .025em;
+}
+
+.intro p {
+  max-width: 31em;
+  padding-bottom: 5px;
+  color: var(--muted);
+  line-height: 1.8;
+}
+
+.review-inputs {
+  padding: 24px;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: #132730c7;
+}
+
+.review-inputs h2, .review-versions h2 {
+  margin-bottom: 13px;
+  font-size: 22px;
+  line-height: 1.45;
+}
+
+.presets {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.presets button {
+  display: grid;
+  gap: 2px;
+  min-height: 56px;
+  padding: 8px 5px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #0d2029;
+  color: var(--text);
+  text-align: center;
+  cursor: pointer;
+}
+
+.presets button[aria-pressed="true"] {
+  border-color: #8daea8;
+  background: #254039;
+}
+
+.presets small {
+  color: var(--muted);
+  font-size: 11px;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+#review-form {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+  margin-top: 18px;
+}
+
+#review-form fieldset {
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+#review-form legend {
+  margin-bottom: 7px;
+  padding: 0;
+  color: var(--accent);
+  font-size: 14px;
+}
+
+#review-form label {
+  display: block;
+  margin-bottom: 4px;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+#review-form label small { font-size: 11px; }
+
+#review-form input {
+  display: block;
+  width: 100%;
+  min-width: 0;
+  min-height: 44px;
+  padding: 7px 10px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: #091c26;
+  color: var(--text);
+  font-size: 16px;
+}
+
+#review-form input::placeholder { color: #8198a4; }
+#review-form input[type="date"] { margin-bottom: 9px; }
+#review-form input[type="date"]::-webkit-date-and-time-value { min-width: 0; text-align: left; }
+
+.review-note {
+  min-height: 1.65em;
+  margin-top: 13px;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.review-versions { margin-top: 27px; }
+
+.destinations {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.destination {
+  min-width: 0;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: var(--panel);
+}
+
+.destination-product {
+  border-color: #acc6bf61;
+  background: #1c353a;
+}
+
+.destination-main {
+  position: relative;
+  display: grid;
+  gap: 5px;
+  min-height: 104px;
+  padding: 15px 37px 15px 16px;
+  border-radius: 9px;
+  text-decoration: none;
+}
+
+.destination-name {
+  color: var(--accent);
+  font: 22px/1.35 var(--serif);
+}
+
+.destination-text { color: var(--muted); font-size: 13px; }
+.destination-arrow { position: absolute; top: 15px; right: 16px; color: var(--gold); }
+
+.experience-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  min-height: 44px;
+  margin: 0 16px;
+  color: var(--accent);
+  font-size: 13px;
+  text-underline-offset: 3px;
+}
+
+.experiment {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px 16px;
+  margin-top: 27px;
+  padding: 17px 0 0;
+  border-top: 1px solid var(--line);
+}
+
+.experiment h2 { font-size: 18px; }
+.experiment p { margin-top: 3px; color: var(--muted); font-size: 13px; }
+.experiment a { display: inline-flex; align-items: center; gap: 6px; min-height: 44px; color: var(--accent); font-size: 13px; white-space: nowrap; text-underline-offset: 3px; }
+
+@media (hover: hover) {
+  .presets button:hover { border-color: #a9c9bf; }
+  .destination-main:hover { background: #d9f1e90d; }
+  .experience-link:hover, .experiment a:hover { color: #fff; }
+}
+
+@media (max-width: 640px) {
+  .page-header, main { width: calc(100% - 32px); }
+  .page-header { min-height: 60px; }
+  main { padding: 24px 0 36px; }
+  .intro { grid-template-columns: 1fr; gap: 9px; margin-bottom: 19px; }
+  .intro h1 { font-size: clamp(29px, 8vw, 36px); }
+  .intro p { padding-bottom: 0; font-size: 13px; }
+  .review-inputs { padding: 14px; }
+  .review-inputs h2, .review-versions h2 { margin-bottom: 10px; font-size: 20px; }
+  .presets { gap: 5px; }
+  .presets button { font-size: 13px; }
+  .presets small { font-size: 10px; }
+  #review-form { gap: 12px; margin-top: 13px; }
+  #review-form input { padding-inline: 7px; }
+  .review-versions { margin-top: 21px; }
+  .destinations { grid-template-columns: 1fr; gap: 8px; }
+  .destination-main { min-height: 72px; padding-block: 11px; }
+  .destination-name { font-size: 20px; }
+  .experiment { flex-wrap: wrap; margin-top: 21px; }
+}
